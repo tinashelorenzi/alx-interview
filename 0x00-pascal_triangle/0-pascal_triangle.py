@@ -9,12 +9,13 @@ def pascal_triangle(n):
     '''
     if n <= 0 or type(n) not is int:
         return []
-    result = [[1]]
-    for i in range(1, n):
-        prev_row = result[-1]
-        row = [1]
+    result = []
+    for i in range(n):
+        line = []
         for j in range(len(prev_row) - 1):
-            row.append(prev_row[j] + prev_row[j + 1])
-        row.append(1)
-        result.append(row)
+            if j == 0 or i == j:
+                line.append(1)
+            elif j > 0 and i > 0:
+                line.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
+        result.append(line)
     return result
