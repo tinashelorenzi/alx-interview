@@ -7,7 +7,7 @@ def pascal_triangle(n):
     '''Creates a list of lists of integers representing
     the Pascal's triangle of a given integer based on arg int n
     '''
-    if n <= 0 or type(n) not is int:
+    if n <= 0 or type(n) is not int:
         return []
     result = []
     for i in range(n):
