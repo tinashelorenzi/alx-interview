@@ -21,17 +21,12 @@ def can_unlock_all(boxes):
     """
     num_boxes = len(boxes)
     seen_boxes = set([0])
-    unopened_boxes = set(boxes[0]).difference(set([0]))
-
-    while len(unopened_boxes) > 0:
-        current_box_idx = unopened_boxes.pop()
-
-        # Check for invalid box indices (negative or out of range).
-        if not 0 <= current_box_idx < num_boxes:
+    unseen_boxes = set(boxes[0]).difference(set([0]))
+    while len(unseen_boxes) > 0:
+        boxIdx = unseen_boxes.pop()
+        if not boxIdx or boxIdx >= num_boxes or boxIdx < 0:
             continue
-
-        if current_box_idx not in seen_boxes:
-            unopened_boxes = unopened_boxes.union(boxes[current_box_idx])
-            seen_boxes.add(current_box_idx)
-
+        if boxIdx not in seen_boxes:
+            unseen_boxes = unseen_boxes.union(boxes[boxIdx])
+            seen_boxes.add(boxIdx)
     return num_boxes == len(seen_boxes)
