@@ -1,11 +1,5 @@
 #!/usr/bin/python3
-"""
-This module provides functions for working with lockboxes.
-
-The primary function, can_unlock_all(boxes), checks if all the boxes in
-a list of boxes contain keys (indices) to other boxes, and if they can be
-unlocked starting from the first box, which is assumed to be unlocked.
-"""
+'''Working with locks'''
 
 
 def can_unlock_all(boxes):
