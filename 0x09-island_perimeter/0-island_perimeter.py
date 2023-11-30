@@ -7,7 +7,7 @@ def island_perimeter(grid):
     """Computes the perimeter of an island with no lakes.
     """
     perimeter = 0
-    if type(grid) != list:
+    if not isinstance(grid, list):
         return 0
     n = len(grid)
     for i, row in enumerate(grid):
